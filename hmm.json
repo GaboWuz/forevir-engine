@@ -45,6 +45,11 @@
       "type": "git",
       "ref": "master",
       "url": "https://github.com/Aidan63/linc_discord-rpc"
+    },
+    {
+      "name": "extension-androidtools",
+      "type": "git",
+      "url": "https://github.com/MAJigsaw77/extension-androidtools.git"
     }
   ]
 }

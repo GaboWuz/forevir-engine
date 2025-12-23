@@ -90,15 +90,28 @@ class FlxGraphicsShader extends GraphicsShader
 		hasTransform = data.hasTransform;
 		hasColorTransform = data.hasColorTransform;
 	}
-	/* override function __initGL()
+
+	// Compat shim — implementa setCamSize para evitar erro de compilação em versões do flixel que chamam esse método.
+	public function setCamSize(w:Float, h:Float):Void
+	{
+		// tenta setar o uniform openfl_TextureSize se existir nos parameters
+		#if !macro
+		try
 		{
-			super.__initGL();
-			
-			alpha = new ShaderParameter<Float>();
-			colorMultiplier = new ShaderParameter<Float>();
-			colorOffset = new ShaderParameter<Float>();
-			hasTransform = new ShaderParameter<Bool>();
-			hasColorTransform = new ShaderParameter<Bool>();
-	}*/
+			if (Reflect.hasField(data, "openfl_TextureSize"))
+			{
+				Reflect.setField(data, "openfl_TextureSize", { value: [w, h] });
+			}
+			else if (Reflect.hasField(data, "textureSize"))
+			{
+				Reflect.setField(data, "textureSize", { value: [w, h] });
+			}
+		}
+		catch (_:Dynamic)
+		{
+			// fallback silencioso: não faz nada
+		}
+		#end
+	}
 }
 #end

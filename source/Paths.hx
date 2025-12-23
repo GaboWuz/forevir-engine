@@ -124,7 +124,7 @@ class Paths
 
 	public static function returnGraphic(key:String, ?library:String, ?textureCompression:Bool = false)
 	{
-		var path = SUtil.getStorageDirectory() + getPath('images/$key.png', IMAGE, library);
+		var path = getPath('images/$key.png', IMAGE, library);
 		if (FileSystem.exists(path))
 		{
 			if (!currentTrackedAssets.exists(key))
@@ -157,7 +157,7 @@ class Paths
 	public static function returnSound(path:String, key:String, ?library:String)
 	{
 		// I hate this so god damn much
-		var gottenPath:String = SUtil.getStorageDirectory() + getPath('$path/$key.$SOUND_EXT', SOUND, library);
+		var gottenPath:String = getPath('$path/$key.$SOUND_EXT', SOUND, library);
 		gottenPath = gottenPath.substring(gottenPath.indexOf(':') + 1, gottenPath.length);
 		// trace(gottenPath);
 		if (!currentTrackedSounds.exists(gottenPath))
@@ -231,7 +231,7 @@ class Paths
 	inline static function getPreloadPath(file:String)
 	{
 		var returnPath:String = 'assets/$file';
-		if (!FileSystem.exists(SUtil.getStorageDirectory() + returnPath))
+		if (!FileSystem.exists(returnPath))
 			returnPath = CoolUtil.swapSpaceDash(returnPath);
 		return returnPath;
 	}
@@ -309,7 +309,7 @@ class Paths
 	inline static public function getSparrowAtlas(key:String, ?library:String)
 	{
 		var graphic:FlxGraphic = returnGraphic(key, library);
-		return (FlxAtlasFrames.fromSparrow(graphic, File.getContent(SUtil.getStorageDirectory() + file('images/$key.xml', library))));
+		return (FlxAtlasFrames.fromSparrow(graphic, File.getContent(file('images/$key.xml', library))));
 	}
 
 	inline static public function getPackerAtlas(key:String, ?library:String)

@@ -8,14 +8,14 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
-import meta.MusicBeat.MusicBeatState;
 import gameObjects.userInterface.menu.Checkmark;
 import gameObjects.userInterface.menu.Selector;
-import meta.MusicBeat.MusicBeatState;
 import meta.data.dependency.Discord;
 import meta.data.dependency.FNFSprite;
 import meta.data.font.Alphabet;
 import meta.subState.OptionsSubstate;
+
+import meta.MusicBeat.MusicBeatState;
 
 /**
 	Options menu rewrite because I'm unhappy with how it was done previously

@@ -9,7 +9,8 @@ import flixel.math.FlxPoint;
 import haxe.Json;
 import lime.system.Clipboard;
 import flixel.graphics.frames.FlxAtlasFrames;
-import meta.MusicBeat.MusicBeatState;
+
+import meta.MusicBeat.MusicBeatSubstate;
 
 using StringTools;
 

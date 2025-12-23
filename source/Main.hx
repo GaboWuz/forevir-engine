@@ -24,6 +24,11 @@ import sys.FileSystem;
 import sys.io.File;
 import sys.io.Process;
 
+#if mobile
+import mobile.util.MobileUtil;
+import openfl.events.UncaughtErrorEvent;
+#end
+
 // Here we actually import the states and metadata, and just the metadata.
 // It's nice to have modularity so that we don't have ALL elements loaded at the same time.
 // at least that's how I think it works. I could be stupid!
@@ -107,7 +112,6 @@ class Main extends Sprite
 	// calls a function to set the game up
 	public function new()
 	{
-		SUtil.uncaughtErrorHandler();
 		super();
 
 		/**
@@ -144,7 +148,16 @@ class Main extends Sprite
 		gameCreate = new FlxGame(gameWidth, gameHeight, Init, #if (flixel < "5.0.0") zoom, #end framerate, framerate, skipSplash);
 		addChild(gameCreate); // and create it afterwards
 		
-		SUtil.checkFiles();
+		#if mobile
+		MobileUtil.getPermissions();
+		Sys.setCwd(haxe.io.Path.addTrailingSlash(MobileUtil.getDirectory()));
+
+		if (!MobileUtil.areAssetsCopied("assets/"))
+			MobileUtil.copyAssetsFromAPK("assets/");
+
+		if (!MobileUtil.areAssetsCopied("assets/videos/"))
+			MobileUtil.copyAssetsFromAPK("assets/videos/");
+		#end
 
 		// default game FPS settings, I'll probably comment over them later.
 		// addChild(new FPS(10, 3, 0xFFFFFF));
@@ -220,7 +233,7 @@ class Main extends Sprite
 		dateNow = StringTools.replace(dateNow, " ", "_");
 		dateNow = StringTools.replace(dateNow, ":", "'");
 
-		path = SUtil.getStorageDirectory() + 'crash/FE_$dateNow.txt';
+		path = 'crash/FE_$dateNow.txt';
 
 		for (stackItem in callStack)
 		{
@@ -236,8 +249,8 @@ class Main extends Sprite
 		errMsg += "\nUncaught Error: " + e.error;
 		//errMsg += "\nPlease report this error to the GitHub page: https://github.com/CrowPlexus-FNF/Forever-Engine-Legacy";
 
-		if (!FileSystem.exists(SUtil.getStorageDirectory() + "crash/"))
-			FileSystem.createDirectory(SUtil.getStorageDirectory() + "crash/");
+		if (!FileSystem.exists("crash/"))
+			FileSystem.createDirectory("crash/");
 
 		File.saveContent(path, errMsg + "\n");
 
@@ -246,7 +259,7 @@ class Main extends Sprite
 		Sys.println("Making a simple alert...");
 
 		#if windows
-		var crashDialoguePath:String = SUtil.getStorageDirectory() + "FE-CrashDialog.exe";
+		var crashDialoguePath:String = "FE-CrashDialog.exe";
 		if (FileSystem.exists(crashDialoguePath))
 			new Process(crashDialoguePath, [path]);
 		else

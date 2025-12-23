@@ -1,68 +1,62 @@
 {
   "dependencies": [
     {
-      "name": "discord_rpc",
-      "type": "git",
-      "dir": null,
-      "ref": "master",
-      "url": "https://github.com/Aidan63/linc_discord-rpc"
-    },
-    {
-      "name": "flixel",
-      "type": "git",
-      "dir": null,
-      "ref": "dev",
-      "url": "https://github.com/CodenameCrew/cne-flixel"
-    },
-    {
-      "name": "flixel-addons",
-      "type": "git",
-      "dir": null,
-      "ref": "dev",
-      "url": "https://github.com/CodenameCrew/cne-flixel-addons"
-    },
-    {
-      "name": "flixel-ui",
-      "type": "haxelib",
-      "version": "2.6.1"
-    },
-    {
-      "name": "hscript",
-      "type": "haxelib",
-      "version": "2.6.0"
-    },
-    {
       "name": "hxcpp",
-      "type": "git",
-      "dir": null,
-      "ref": "master",
-      "url": "https://github.com/MaysLastPlays-Stuff/hxcpp-h"
+      "type": "haxelib",
+      "version": "4.2.1"
     },
     {
       "name": "lime",
-      "type": "git",
-      "dir": null,
-      "ref": "main",
-      "url": "https://github.com/MaysLastPlays-Stuff/lime-h"
-    },
-    {
-      "name": "linc_luajit",
-      "type": "git",
-      "dir": null,
-      "ref": "master",
-      "url": "https://github.com/superpowers04/linc_luajit"
+      "type": "haxelib",
+      "version": "7.9.0"
     },
     {
       "name": "openfl",
       "type": "haxelib",
-      "version": "9.4.2"
+      "version": "9.1.0"
+    },
+    {
+      "name": "flixel",
+      "type": "haxelib",
+      "version": "4.11.0"
+    },
+    {
+      "name": "flixel-addons",
+      "type": "haxelib",
+      "version": "2.10.0"
+    },
+    {
+      "name": "flixel-ui",
+      "type": "haxelib",
+      "version": "2.4.0"
+    },
+    {
+      "name": "hscript",
+      "type": "haxelib",
+      "version": "2.5.0"
+    },
+    {
+      "name": "hxCodec",
+      "type": "haxelib",
+      "version": "2.6.1"
+    },
+    {
+      "name": "discord_rpc",
+      "type": "git",
+      "ref": "master",
+      "url": "https://github.com/Aidan63/linc_discord-rpc"
+    },
+    {
+      "name": "linc_luajit",
+      "type": "git",
+      "ref": "master",
+      "url": "https://github.com/superpowers04/linc_luajit"
     },
     {
       "name": "extension-androidtools",
       "type": "git",
-      "dir": null,
-	    "ref": "main",
-	    "url": "https://github.com/MAJigsaw77/extension-androidtools"
+      "ref": "main",
+      "url": "https://github.com/MAJigsaw77/extension-androidtools"
     }
   ]
 }

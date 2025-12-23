@@ -43,7 +43,7 @@ class Main extends Sprite
 
 	public static final gameVersion:String = '0.3.2h';
 
-	// var zoom:Float = -1; // If -1, zoom is automatically calculated to fit the window dimensions.
+	var zoom:Float = -1; // If -1, zoom is automatically calculated to fit the window dimensions.
 	var skipSplash:Bool = true; // Whether to skip the flixel splash screen that appears in release mode.
 	var infoCounter:Overlay; // initialize the heads up display that shows information before creating it.
 
@@ -127,7 +127,7 @@ class Main extends Sprite
 		// if you've used gamemaker you'll probably understand the term surface better
 		// this defines the surface bounds
 
-		/* // no longer serves purpose due to flixel 5 changes
+		// no longer serves purpose due to flixel 5 changes
 		var stageWidth:Int = Lib.current.stage.stageWidth;
 		var stageHeight:Int = Lib.current.stage.stageHeight;
 
@@ -141,7 +141,6 @@ class Main extends Sprite
 			// this just kind of sets up the camera zoom in accordance to the surface width and camera zoom.
 			// if set to negative one, it is done so automatically, which is the default.
 		}
-		*/
 
 		// here we set up the base game
 		var gameCreate:FlxGame;

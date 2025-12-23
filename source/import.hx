@@ -1,5 +1,5 @@
 #if !macro
 
-import flixel.system.FlxSound;
+import flixel.sound.FlxSound;
 
 #end

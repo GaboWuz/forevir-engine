@@ -41,7 +41,7 @@ jobs:
       - name: Setup Haxe
         uses: krdlab/setup-haxe@38fd78cc3a7960b281cf4a33a63a9c1543ac4598
         with:
-          haxe-version: 4.3.6
+          haxe-version: 4.2.5
 
       - name: Update haxelib
         run: haxelib --global update haxelib

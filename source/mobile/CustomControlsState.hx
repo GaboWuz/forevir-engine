@@ -9,12 +9,11 @@ import flixel.math.FlxPoint;
 import haxe.Json;
 import lime.system.Clipboard;
 import flixel.graphics.frames.FlxAtlasFrames;
-
-import meta.MusicBeat.MusicBeatSubstate;
+import meta.MusicBeat.MusicBeatSubState;
 
 using StringTools;
 
-class CustomControlsState extends MusicBeatSubstate {
+class CustomControlsState extends MusicBeatSubState {
     var _pad:FlxVirtualPad;
     var _hb:HitBox;
 

@@ -3,42 +3,37 @@
       {
          "name": "lime",
          "type": "install",
-         "version": null
+         "version": "7.9.0"
       },
       {
          "name": "flixel",
          "type": "install",
-         "version": null
+         "version": "4.11.0"
       },
       {
          "name": "flixel-addons",
          "type": "install",
-         "version": null
+         "version": "2.11.0"
       },
       {
          "name": "flixel-ui",
          "type": "install",
-         "version": null
+         "version": "2.6.1"
       },
       {
          "name": "openfl",
          "type": "install",
-         "version": null
+         "version": "9.1.0"
       },
       {
          "name": "hxcpp",
          "type": "install",
-         "version": null
+         "version": "4.2.1"
       },
       {
          "name": "hscript",
-         "type": "install",
-         "version": null
-      },
-      {
-         "name": "hxcpp-debug-server",
-         "type": "install",
-         "version": null
+         "type": "haxelib",
+         "version": "2.4.0"
       },
       {
          "name": "discord_rpc",

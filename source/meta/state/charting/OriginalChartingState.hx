@@ -47,6 +47,7 @@ class OriginalChartingState extends MusicBeatState
 	var UI_box:FlxUITabMenu;
 	var curNoteType:Int = 0;
 	var bpmTxt:FlxText;
+	var prevBar:Int = 0;
 
 	var strumLine:FlxSprite;
 	var curSong:String = 'Dadbattle';
@@ -580,6 +581,8 @@ class OriginalChartingState extends MusicBeatState
 		FlxG.watch.addQuick('daBeat', curBeat);
 		FlxG.watch.addQuick('daStep', curStep);
 		
+		prevBar = curBar;
+		
 		if (FlxG.mouse.x > gridBG.x
 		    && FlxG.mouse.x < gridBG.x + gridBG.width
 		    && FlxG.mouse.y > gridBG.y
@@ -623,18 +626,6 @@ class OriginalChartingState extends MusicBeatState
 		            addNote();
 		        }
 		    }
-		}
-
-		if (FlxG.mouse.x > gridBG.x
-			&& FlxG.mouse.x < gridBG.x + gridBG.width
-			&& FlxG.mouse.y > gridBG.y
-			&& FlxG.mouse.y < gridBG.y + (GRID_SIZE * _song.notes[curBar].lengthInSteps))
-		{
-			dummyArrow.x = Math.floor(FlxG.mouse.x / GRID_SIZE) * GRID_SIZE;
-			if (FlxG.keys.pressed.SHIFT)
-				dummyArrow.y = FlxG.mouse.y;
-			else
-				dummyArrow.y = Math.floor(FlxG.mouse.y / GRID_SIZE) * GRID_SIZE;
 		}
 
 		if (FlxG.keys.justPressed.ENTER #if mobile || vPad.buttonA.justPressed #end)
@@ -765,6 +756,20 @@ class OriginalChartingState extends MusicBeatState
 			+ '\nBar: $curBar'
 			+ '\nBeat: $curBeat'
 			+ '\nStep: $curStep';
+		
+		if (prevBar != curBar)
+		{
+		    // Auto-add sections se necessário (pra quando tocar pra frente)
+		    while (curBar >= _song.notes.length)
+		    {
+		        addSection();
+		    }
+		    
+		    updateGrid();
+		    updateSectionUI();
+		    updateHeads();
+		}
+		
 		super.update(elapsed);
 
 		lastSongPos = Conductor.songPosition;

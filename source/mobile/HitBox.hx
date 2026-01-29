@@ -14,9 +14,7 @@ class HitBox extends FlxSpriteGroup
     public var buttonDown:FlxButton;
     public var buttonUp:FlxButton;
     public var buttonRight:FlxButton;
-    public var gaboidiota = true;
-    // porra como coda em hx
-
+    
     public function new()
     {
         super();
@@ -40,16 +38,11 @@ class HitBox extends FlxSpriteGroup
     {
         var button:FlxButton = new FlxButton(x, y);
         button.makeGraphic(width, height, FlxColor.fromString(color));
-        if (gaboidiota){
         button.alpha = 0.01;
 
         button.onDown.callback = () -> button.alpha = 0.1;
         button.onUp.callback = () -> button.alpha = 0.01;
         button.onOut.callback = button.onUp.callback;
-        }else{
-        // isso é inutil, mas vou continuar com isso
-        }
-        }
 
         return button;
     }

@@ -639,7 +639,7 @@ class OriginalChartingState extends MusicBeatState
 		{
 			changeNoteSustain(Conductor.stepCrochet);
 		}
-		if (FlxG.keys.justPressed.Q vPad.buttonX.justPressed)
+		if (FlxG.keys.justPressed.Q não#if mobile || vPad.buttonX.justPressed #end)
 		{
 			changeNoteSustain(-Conductor.stepCrochet);
 		}
@@ -662,7 +662,7 @@ class OriginalChartingState extends MusicBeatState
 
 		if (!typingShit.hasFocus)
 		{
-			if (FlxG.keys.justPressed.SPACE vPad.buttonC.justPressed)
+			if (FlxG.keys.justPressed.SPACE #if mobile || vPad.buttonC.justPressed #end)
 			{
 				if (songMusic.playing)
 				{
